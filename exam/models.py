@@ -9,5 +9,8 @@ class Choice(models.Model):
     is_correct = models.BooleanField(default=False)
 
 class Submission(models.Model):
-    student_name = models.CharField(max_length=100)
-    score = models.IntegerField(default=0)
+    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
+    choices = models.ManyToManyField(Choice)
+
+    def __str__(self):
+        return f"Submission {self.id}"
