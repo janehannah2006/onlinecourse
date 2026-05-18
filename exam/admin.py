@@ -15,6 +15,7 @@ class QuestionInline(admin.TabularInline):
 
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
+    list_display = ('id', 'question_text')
 
 class LessonAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
